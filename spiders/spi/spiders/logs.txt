@@ -1,0 +1,54 @@
+2020-12-18 18:10:08 [scrapy.utils.log] INFO: Scrapy 2.4.1 started (bot: spi)
+2020-12-18 18:10:08 [scrapy.utils.log] INFO: Versions: lxml 4.4.1.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.4 (default, Aug  9 2019, 18:34:13) [MSC v.1915 64 bit (AMD64)], pyOpenSSL 19.0.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.7, Platform Windows-10-10.0.19041-SP0
+2020-12-18 18:10:08 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-12-18 18:11:27 [scrapy.utils.log] INFO: Scrapy 2.4.1 started (bot: spi)
+2020-12-18 18:11:27 [scrapy.utils.log] INFO: Versions: lxml 4.4.1.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.4 (default, Aug  9 2019, 18:34:13) [MSC v.1915 64 bit (AMD64)], pyOpenSSL 19.0.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.7, Platform Windows-10-10.0.19041-SP0
+2020-12-18 18:11:27 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-12-18 18:11:27 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'AUTOTHROTTLE_START_DELAY': 1,
+ 'BOT_NAME': 'spi',
+ 'DOWNLOAD_DELAY': 5,
+ 'LOG_FILE': 'logs.txt',
+ 'NEWSPIDER_MODULE': 'spi.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['spi.spiders']}
+2020-12-18 18:11:27 [scrapy.extensions.telnet] INFO: Telnet Password: d29e59b8e5e56d6d
+2020-12-18 18:11:27 [py.warnings] WARNING: C:\ProgramData\Anaconda3\lib\site-packages\scrapy\extensions\feedexport.py:247: ScrapyDeprecationWarning: The `FEED_URI` and `FEED_FORMAT` settings have been deprecated in favor of the `FEEDS` setting. Please see the `FEEDS` setting docs for more details
+  exporter = cls(crawler)
+
+2020-12-18 18:14:13 [scrapy.utils.log] INFO: Scrapy 2.4.1 started (bot: spi)
+2020-12-18 18:14:13 [scrapy.utils.log] INFO: Versions: lxml 4.4.1.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.4 (default, Aug  9 2019, 18:34:13) [MSC v.1915 64 bit (AMD64)], pyOpenSSL 19.0.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.7, Platform Windows-10-10.0.19041-SP0
+2020-12-18 18:14:13 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-12-18 18:14:13 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'AUTOTHROTTLE_START_DELAY': 1,
+ 'BOT_NAME': 'spi',
+ 'DOWNLOAD_DELAY': 5,
+ 'LOG_FILE': 'logs.txt',
+ 'NEWSPIDER_MODULE': 'spi.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['spi.spiders']}
+2020-12-18 18:14:13 [scrapy.extensions.telnet] INFO: Telnet Password: 59f05ebbed94f4c6
+2020-12-18 18:14:13 [py.warnings] WARNING: C:\ProgramData\Anaconda3\lib\site-packages\scrapy\extensions\feedexport.py:247: ScrapyDeprecationWarning: The `FEED_URI` and `FEED_FORMAT` settings have been deprecated in favor of the `FEEDS` setting. Please see the `FEEDS` setting docs for more details
+  exporter = cls(crawler)
+
+2020-12-18 18:30:50 [scrapy.utils.log] INFO: Scrapy 2.4.1 started (bot: spi)
+2020-12-18 18:30:50 [scrapy.utils.log] INFO: Versions: lxml 4.4.1.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.4 (default, Aug  9 2019, 18:34:13) [MSC v.1915 64 bit (AMD64)], pyOpenSSL 19.0.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.7, Platform Windows-10-10.0.19041-SP0
+2020-12-18 18:30:50 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-12-18 18:31:27 [scrapy.utils.log] INFO: Scrapy 2.4.1 started (bot: spi)
+2020-12-18 18:31:27 [scrapy.utils.log] INFO: Versions: lxml 4.4.1.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.4 (default, Aug  9 2019, 18:34:13) [MSC v.1915 64 bit (AMD64)], pyOpenSSL 19.0.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.7, Platform Windows-10-10.0.19041-SP0
+2020-12-18 18:31:27 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2020-12-18 18:31:27 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'AUTOTHROTTLE_START_DELAY': 1,
+ 'BOT_NAME': 'spi',
+ 'DOWNLOAD_DELAY': 5,
+ 'LOG_FILE': 'logs.txt',
+ 'NEWSPIDER_MODULE': 'spi.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['spi.spiders']}
+2020-12-18 18:31:27 [scrapy.extensions.telnet] INFO: Telnet Password: 9bcc4e835c5c5caa
+2020-12-18 18:31:27 [py.warnings] WARNING: C:\ProgramData\Anaconda3\lib\site-packages\scrapy\extensions\feedexport.py:247: ScrapyDeprecationWarning: The `FEED_URI` and `FEED_FORMAT` settings have been deprecated in favor of the `FEEDS` setting. Please see the `FEEDS` setting docs for more details
+  exporter = cls(crawler)
+
