@@ -5,7 +5,8 @@
 
 
 # !pip install scrapy
-# !pip install pyexcel pyexcel-xls pyexcel-xlsx
+# !pip install OleFileIO_PL
+# !pip install urllib
 
 
 # In[2]:
@@ -14,7 +15,11 @@
 import scrapy
 from urllib.parse import urlencode
 import ast
-import pyexcel as p
+from datetime import datetime
+import OleFileIO_PL
+import pandas as pd
+import pickle
+from datetime import datetime
 
 
 # In[3]:
@@ -23,51 +28,63 @@ import pyexcel as p
 class CepeaSpider(scrapy.Spider):
     
     name = "cepea"
-    temp_folder = '../temp/'
-    folder = '../files/'
-    path = f'{name}.xls'
-
-    params = {
-        'tabela_id': 23, 
-        'data_inicial':'01/12/2020',
-        'periodicidade':1,
-        'data_final':'15/12/2020',
-    }
-    
-    start_urls = [
-        'https://www.cepea.esalq.usp.br/br/consultas-ao-banco-de-dados-do-site.aspx?' + urlencode(params),
-    ]
+       
+    def __new__(cls, name, cod, dt_ini = '01/01/1990', dt_fim = datetime.today().strftime('%d/%m/%Y')):
+        instance = object.__new__(cls)
+        
+        # start_urls
+        instance.params = {
+        'tabela_id' : cod,
+        'data_inicial' : dt_ini,
+        'periodicidade' : 1,
+        'data_final' : dt_fim,
+        }
+        instance.start_urls = [
+            'https://www.cepea.esalq.usp.br/br/consultas-ao-banco-de-dados-do-site.aspx?' + urlencode(instance.params),
+        ]
+        
+        # Arquivos e pastas
+        instance.folder = '../files/'
+        marca_data = datetime.today().strftime('%Y-%m-%d')
+        instance.fname = f'{name}.{marca_data}.p'
+        instance.arquivo = instance.folder + instance.fname
+        return instance
     
     def parse(self, response):
         final_url = ast.literal_eval(response.text)
         arquivo = final_url['arquivo'].replace("\\", "")
-        # print(arquivo)
         yield scrapy.Request(
-            url=arquivo,
-            callback=self.save_pdf
+            url = arquivo,
+            callback = self.save
         )
-    
-    def save_pdf(self, response):
-        self.logger.info('Saving PDF %s', self.temp_folder + self.path)
-        with open(self.temp_folder + self.path, 'wb') as f:
-            f.write(response.body)
+
+    def save(self, response):
+        ole = OleFileIO_PL.OleFileIO(response.body)
+        df = pd.read_excel(ole.openstream('Workbook'), skiprows=3)
+        df = df.set_index("Data")
+        with open(self.arquivo, 'wb') as handle:
+            pickle.dump(df, handle)
 
 
-# In[4]:
+# In[ ]:
 
 
-# %%capture
+import yaml
 from scrapy.crawler import CrawlerProcess
+import time
 
-process = CrawlerProcess({
-    'USER_AGENT': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)'
-})
-process.crawl(CepeaSpider)
+# Load Settings
+name = CepeaSpider.name
+with open(f"{name}.yaml", 'r') as stream:
+    config = yaml.safe_load(stream)
+
+# Run spider
+for k, v in config.items():
+    time.sleep(5)
+    process = CrawlerProcess({
+        'USER_AGENT': 'Mozilla/5.0 (compatible; MSIE 7.0; Windows NT 5.0)'
+    })
+    process.crawl(CepeaSpider, name=k, cod=v)
+
 process.start()
-
-
-# In[7]:
-
-
-get_ipython().run_cell_magic('capture', '', "p.save_book_as(file_name = CepeaSpider.temp_folder + CepeaSpider.path,\n               dest_file_name = CepeaSpider.folder + CepeaSpider.path + 'x')")
 
